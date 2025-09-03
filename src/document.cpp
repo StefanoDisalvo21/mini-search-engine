@@ -8,11 +8,11 @@
 #include "helpers_function.hpp"
 using namespace std;
 
-
 namespace fs = std::filesystem;
+
 vector<Document> DomLoad::read_docs(const string& path){
     vector<Document> ds;
-
+    
     return ds;
 }
 
