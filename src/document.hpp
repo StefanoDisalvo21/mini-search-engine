@@ -7,8 +7,8 @@ using namespace std;
 
 class Document{
   private:
-    string file_name=NULL;
-    string content=NULL;
+    string file_name;
+    string content;
     vector<string> tokens;
   public:
     Document(const string& fname, const string& text)
