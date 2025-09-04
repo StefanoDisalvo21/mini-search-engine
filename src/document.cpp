@@ -10,15 +10,19 @@ using namespace std;
 
 namespace fs = std::filesystem;
 
-vector<Document> DomLoad::read_docs(const string& path){
+vector<Document> DomLoad::read_docs(const string& data_path){
     vector<Document> ds;
-    if(!fs::exists(path)){
+    if(!fs::exists(data_path)){
         throw invalid_argument("The path does not exist");
     }
-    if(!fs::is_directory(path)){
+    if(!fs::is_directory(data_path)){
         throw invalid_argument("Not a directory");
     }
-    
+    for(auto &entry:fs::directory_iterator(data_path)){
+        if(fs::path(entry).extension().string()==".txt"){
+            
+        }
+    }
     return ds;
 }
 
