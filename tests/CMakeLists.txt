@@ -1,5 +1,3 @@
-enable_testing()
-
 add_executable(doc_test doc_test.cpp)
 target_link_libraries(doc_test PRIVATE searchengine gtest_main)
 
