@@ -11,5 +11,9 @@ using namespace std;
 namespace fs = std::filesystem;
 
 vector<Document> DomLoad::read_docs(const string& path){
+    if(!fs::exists(path)){
+        throw invalid_argument("The path does not exist");
+    }
+
 }
 
