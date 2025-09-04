@@ -12,6 +12,7 @@ using namespace std;
 int main(){
     int choice;
     DomLoad loader;
-    vector<Document> docs=loader.read_docs("../data");
+    const string data_information = "../../data";
+    vector<Document> docs=loader.read_docs(data_information);
     return 0;
 }

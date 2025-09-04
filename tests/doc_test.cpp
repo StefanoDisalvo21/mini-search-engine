@@ -8,3 +8,9 @@ TEST(Load_Test,first_test){
     EXPECT_THROW(dom_obj.read_docs(ds),invalid_argument);
 
 }
+TEST(Load_Test,second_test){
+    DomLoad dom_obj;
+    string ds="../../README.md";
+    EXPECT_THROW(dom_obj.read_docs(ds),invalid_argument);
+
+}
