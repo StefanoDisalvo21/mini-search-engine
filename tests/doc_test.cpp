@@ -1,4 +1,6 @@
 #include <gtest/gtest.h>
+#include <vector>
+#include <iostream>
 #include "document.hpp"
 using namespace std;
 
