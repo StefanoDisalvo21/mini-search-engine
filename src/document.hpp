@@ -14,6 +14,15 @@ class Document{
     Document(const string& fname, const string& text)
     :file_name(fname),content(text){};
     void tokenize();
+    const string get_file_name() {return file_name;}
+    const string get_file_content() {return content;};
+    bool operator==(const Document &doc2) const{
+      return file_name==doc2.file_name&&
+      content==doc2.content;
+    }
+    bool operator<(const Document& doc2) const {
+      return file_name < doc2.file_name;
+    }
          
 };
 
