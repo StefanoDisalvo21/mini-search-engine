@@ -10,7 +10,7 @@ using namespace std;
 
 namespace fs = std::filesystem;
 
-vector<Document> DomLoad::read_docs(const string& data_path){
+vector<Document> DomLoad::load_data(const string& data_path){
     vector<Document> ds;
     if(!fs::exists(data_path)){
         throw invalid_argument("The path does not exist");

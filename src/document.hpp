@@ -29,6 +29,6 @@ class Document{
 
 class DomLoad{
   public:
-    vector<Document> read_docs(const string& data_path);
+    vector<Document> load_data(const string& data_path);
 };
 

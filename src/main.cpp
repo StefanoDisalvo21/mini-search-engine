@@ -13,6 +13,6 @@ int main(){
     int choice;
     DomLoad loader;
     const string data_information = "../../data";
-    vector<Document> docs=loader.read_docs(data_information);
+    vector<Document> docs=loader.load_data(data_information);
     return 0;
 }
