@@ -2,7 +2,11 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <fstream>
 #include <filesystem>
+#include <unicode/unistr.h>
+#include <unicode/normalizer2.h>
+#include <unicode/brkiter.h>
 using namespace std;
 
 class Document{

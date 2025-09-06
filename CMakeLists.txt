@@ -14,6 +14,20 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+set(ICU_ROOT "/opt/homebrew/opt/icu4c")         
+set(ICU_INCLUDE_DIR "${ICU_ROOT}/include")
+set(ICU_LIBRARY_DIR "${ICU_ROOT}/lib")
+
+include_directories(${ICU_INCLUDE_DIR})
+
+
+set(ICU_LIBS
+    ${ICU_LIBRARY_DIR}/libicuuc.dylib
+    ${ICU_LIBRARY_DIR}/libicui18n.dylib
+    ${ICU_LIBRARY_DIR}/libicudata.dylib
+)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 
 add_subdirectory(src)
 add_subdirectory(tests)
