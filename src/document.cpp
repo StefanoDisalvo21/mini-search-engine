@@ -23,9 +23,15 @@ vector<Document> DomLoad::load_data(const string& data_path){
                 cont+=word;
             }
             Document doc(entry.path().filename().string(),cont);
+            doc.normalization();
             ds.push_back(doc);
+         
         }
     }
     return ds;
 }
 
+void Document::normalization(){
+    
+    
+}

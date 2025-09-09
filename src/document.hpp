@@ -18,6 +18,7 @@ class Document{
     Document(const string& fname, const string& text)
     :file_name(fname),content(text){};
     void tokenize();
+    void normalization();
     const string get_file_name() {return file_name;}
     const string get_file_content() {return content;};
     bool operator==(const Document &doc2) const{
