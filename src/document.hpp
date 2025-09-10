@@ -13,11 +13,12 @@ class Document{
   private:
     string file_name;
     string content;
+    icu::UnicodeString normalized_string;
     vector<string> tokens;
   public:
     Document(const string& fname, const string& text)
     :file_name(fname),content(text){};
-    void tokenize();
+    void tokenization();
     void normalization();
     const string get_file_name() {return file_name;}
     const string get_file_content() {return content;};
