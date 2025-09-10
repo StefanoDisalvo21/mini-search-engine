@@ -34,6 +34,10 @@ vector<Document> DomLoad::load_data(const string& data_path){
 
 //function to normalize
 void Document::normalization(){
+    UErrorCode error= U_ZERO_ERROR;
     icu::UnicodeString txt_unicode = icu::UnicodeString::fromUTF8(content);
-    
+    icu::UnicodeString normalized_string;
+    const icu::Normalizer2* norm = icu::Normalizer2::getNFCInstance(error);
+    norm->normalize(txt_unicode,normalized_string,error);
+    normalized_string.toLower();
 }
