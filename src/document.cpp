@@ -46,5 +46,15 @@ void Document::tokenization(){
     icu::Locale loc("en");
     icu::BreakIterator* brk =icu::BreakIterator::createWordInstance(loc,error);
     brk->setText(normalized_string);
-    brk->first();
+    int start=brk->first();
+    while(brk->next()!=icu::BreakIterator::DONE){
+        int end_phrase = brk->current();
+        icu::UnicodeString temp_token = normalized_string.tempSubString(start, end_phrase);
+        if(brk->getRuleStatus()==UBRK_WORD_LETTER||brk->getRuleStatus()==UBRK_WORD_NUMBER){
+            string tok;
+            temp_token.toUTF8String(tok);
+            tokens.push_back(tok);
+        }
+        start = end_phrase;
+    }
 }
