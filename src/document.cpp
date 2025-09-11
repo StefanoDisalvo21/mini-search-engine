@@ -42,5 +42,9 @@ void Document::normalization(){
 }
 
 void Document::tokenization(){
-    
+    UErrorCode error= U_ZERO_ERROR;
+    icu::Locale loc("en");
+    icu::BreakIterator* brk =icu::BreakIterator::createWordInstance(loc,error);
+    brk->setText(normalized_string);
+    brk->first();
 }
