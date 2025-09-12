@@ -1,6 +1,7 @@
 add_library(searchengine
     document.cpp
     search_engine.cpp
+    helpers_function.cpp
 )
 
 

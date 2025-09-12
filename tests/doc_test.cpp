@@ -84,3 +84,12 @@ TEST(Load_Test,fifth_test){
     EXPECT_EQ(vt[2].get_file_content(),test_strings::content2);
     EXPECT_EQ(vt[3].get_file_content(),test_strings::content1);
 }
+
+TEST(Tokenization,first_Test){
+    Document obj("art.txt","DomLoad is a class");
+    obj.normalization();
+    obj.tokenization();
+    vector<string> expected_vector = {"domload","is","a","class"};
+    vector<string> object_vector = obj.get_tokens();
+    EXPECT_EQ(object_vector,expected_vector);
+}

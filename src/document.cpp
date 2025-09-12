@@ -1,5 +1,4 @@
 #include "document.hpp"
-#include "helpers_function.hpp"
 using namespace std;
 
 namespace fs = std::filesystem;
@@ -49,7 +48,8 @@ void Document::tokenization(){
     int start=brk->first();
     while(brk->next()!=icu::BreakIterator::DONE){
         int end_phrase = brk->current();
-        icu::UnicodeString temp_token = normalized_string.tempSubString(start, end_phrase);
+        int lenght_phrase = end_phrase-start;
+        icu::UnicodeString temp_token = normalized_string.tempSubString(start,lenght_phrase);
         if(brk->getRuleStatus()==UBRK_WORD_LETTER||brk->getRuleStatus()==UBRK_WORD_NUMBER){
             helpers::space_trim(temp_token);
             string tok;

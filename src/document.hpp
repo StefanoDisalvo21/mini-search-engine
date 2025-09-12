@@ -7,6 +7,7 @@
 #include <unicode/unistr.h>
 #include <unicode/normalizer2.h>
 #include <unicode/brkiter.h>
+#include "helpers_function.hpp"
 using namespace std;
 
 class Document{
@@ -22,6 +23,7 @@ class Document{
     void normalization();
     const string get_file_name() {return file_name;}
     const string get_file_content() {return content;};
+    const vector<string> get_tokens(){return tokens;}
     bool operator==(const Document &doc2) const{
       return file_name==doc2.file_name&&
       content==doc2.content;

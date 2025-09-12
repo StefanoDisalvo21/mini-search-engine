@@ -5,7 +5,6 @@
 #include <filesystem>
 #include "document.hpp"
 #include "search_engine.hpp"
-#include "helpers_function.hpp"
 using namespace std;
 
 
