@@ -51,6 +51,7 @@ void Document::tokenization(){
         int end_phrase = brk->current();
         icu::UnicodeString temp_token = normalized_string.tempSubString(start, end_phrase);
         if(brk->getRuleStatus()==UBRK_WORD_LETTER||brk->getRuleStatus()==UBRK_WORD_NUMBER){
+            helpers::space_trim(temp_token);
             string tok;
             temp_token.toUTF8String(tok);
             tokens.push_back(tok);

@@ -3,8 +3,11 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
+#include "document.hpp"
 using namespace std;
 
 namespace helpers{
-
+    void space_trim(icu::UnicodeString& token){
+        
+    }
 };
