@@ -93,3 +93,27 @@ TEST(Tokenization,first_Test){
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
+TEST(Tokenization, second_test){
+    Document obj("art.txt","The document loading routine isn't working");
+    obj.normalization();
+    obj.tokenization();
+    vector<string> expected_vector = {"the","document","loading","routine","isn't","working"};
+    vector<string> object_vector = obj.get_tokens();
+    EXPECT_EQ(object_vector,expected_vector);
+}
+TEST(Tokenization, third_test){
+    Document obj("art.txt",test_strings::content1);
+    obj.normalization();
+    obj.tokenization();
+    vector<string> expected_vector = {
+    "the", "birth", "of", "artificial", "intelligence", "ai", "research",
+    "by", "lawrence", "livermore", "national", "laboratory",
+    "this", "article", "provides", "a", "timeline", "of", "key", "events", "starting", "with", "alan", "turing's", "1950", "paper", "computing", "machinery", "and", "intelligence",
+    "and", "the", "1956", "dartmouth", "workshop", "where", "the", "term", "artificial", "intelligence", "was", "coined",
+    "it", "also", "discusses", "the", "early", "boom", "and", "subsequent", "ai", "winters", "in", "funding", "and", "interest",
+    "the", "history", "of", "ai", "a", "timeline", "of", "artificial", "intelligence", "from", "coursera",
+    "this", "article", "offers", "a", "detailed", "timeline", "including", "historical", "and", "fictional", "precedents", "for", "ai",
+    "such", "as", "jonathan", "swift's", "gulliver's", "travels", "and", "key", "early", "developments", "like", "the", "creation", "of", "the", "first", "chatbot", "eliza", "in", "1966"};
+    vector<string> object_vector = obj.get_tokens();
+    EXPECT_EQ(object_vector,expected_vector);
+}
