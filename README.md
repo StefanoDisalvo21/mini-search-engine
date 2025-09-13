@@ -40,6 +40,7 @@
         README.md
 
 # Useful info
-    The project uses the ICU [ICU (International Components for Unicode)](https://icu.unicode.org/) library to handle strings.
+    The project uses the ICU [ICU (International Components for Unicode)]
+    (https://icu.unicode.org/) library to handle strings.
 
 ## Enjoy The Ride 🚀🚀
