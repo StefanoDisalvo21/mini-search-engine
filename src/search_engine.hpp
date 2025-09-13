@@ -2,4 +2,8 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <fstream>
 #include <filesystem>
+#include "document.hpp"
+#include "helpers_function.hpp"
+using namespace std;
