@@ -79,10 +79,11 @@ TEST(Load_Test,fifth_test){
     DomLoad dom_obj;
     string ds="../../data";
     vector<Document> vt = dom_obj.load_data(ds);
-    EXPECT_EQ(vt[0].get_file_content(),test_strings::content4);
-    EXPECT_EQ(vt[1].get_file_content(),test_strings::content3);
-    EXPECT_EQ(vt[2].get_file_content(),test_strings::content2);
-    EXPECT_EQ(vt[3].get_file_content(),test_strings::content1);
+    sort(vt.begin(),vt.end());
+    EXPECT_EQ(vt[0].get_file_content(),test_strings::content1);
+    EXPECT_EQ(vt[1].get_file_content(),test_strings::content2);
+    EXPECT_EQ(vt[2].get_file_content(),test_strings::content3);
+    EXPECT_EQ(vt[3].get_file_content(),test_strings::content4);
 }
 
 TEST(Tokenization,first_Test){
@@ -116,4 +117,49 @@ TEST(Tokenization, third_test){
     "such", "as", "jonathan", "swift's", "gulliver's", "travels", "and", "key", "early", "developments", "like", "the", "creation", "of", "the", "first", "chatbot", "eliza", "in", "1966"};
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
+}
+TEST(Tokenization, fourth_test){
+    DomLoad dom_obj;
+    string ds="../../data";
+    vector<Document> vt = dom_obj.load_data(ds);
+    vector<string> expected_vector1 = {
+    "the", "birth", "of", "artificial", "intelligence", "ai", "research",
+    "by", "lawrence", "livermore", "national", "laboratory",
+    "this", "article", "provides", "a", "timeline", "of", "key", "events", "starting", "with", "alan", "turing's", "1950", "paper", "computing", "machinery", "and", "intelligence",
+    "and", "the", "1956", "dartmouth", "workshop", "where", "the", "term", "artificial", "intelligence", "was", "coined",
+    "it", "also", "discusses", "the", "early", "boom", "and", "subsequent", "ai", "winters", "in", "funding", "and", "interest",
+    "the", "history", "of", "ai", "a", "timeline", "of", "artificial", "intelligence", "from", "coursera",
+    "this", "article", "offers", "a", "detailed", "timeline", "including", "historical", "and", "fictional", "precedents", "for", "ai",
+    "such", "as", "jonathan", "swift's", "gulliver's", "travels", "and", "key", "early", "developments", "like", "the", "creation", "of", "the", "first", "chatbot", "eliza", "in", "1966"};
+    vector<string> expected_vector4 = {
+        "artificial", "intelligence", "arxiv", "and", "journal", "of", "artificial", "intelligence", "research",
+        "are", "excellent", "resources", "for", "academic", "research", "papers", "arxiv", "is", "a", "repository", "for", "pre", "print",
+        "papers", "in", "various", "scientific", "fields", "including", "ai", "the", "journal", "of", "artificial", "intelligence",
+        "research", "jair", "publishes", "peer", "reviewed", "articles", "on", "all", "areas", "of", "ai", "ai", "researchers", "lured",
+        "with", "high", "salaries", "are", "leaving", "meta", "quoting", "mark", "zuckerberg’s", "own", "advice", "on", "their", "way", "out",
+        "from", "the", "economic", "times", "this", "article", "provides", "insight", "into", "the", "competitive", "landscape", "of", "ai",
+        "research", "discussing", "the", "talent", "war", "between", "major", "tech", "companies", "and", "what", "motivates", "top", "researchers"};
+    vector<string> expected_vector3 = {
+    "ai", "apocalypse", "why", "language", "surrounding", "tech", "is", "sounding", "increasingly", "religious", "from", "the", "associated", "press",
+    "this", "article", "discusses", "the", "growing", "debate", "around", "the", "potential", "of", "ai", "to", "bring", "about", "a", "technological", "apocalypse", "or", "a", "new", "age", "of", "human", "evolution",
+    "it", "highlights", "different", "perspectives", "from", "researchers", "and", "tech", "ceos",
+    "are", "ai", "bots", "now", "digital", "beings", "with", "rights", "new", "group", "fuels", "global", "debate", "on", "consciousness", "and", "human", "morality", "from", "the", "economic", "times",
+    "this", "article", "delves", "into", "the", "complex", "and", "emerging", "debate", "over", "whether", "ai", "systems", "could", "one", "day", "be", "considered", "conscious", "and", "deserve", "rights",
+    "it", "mentions", "a", "group", "advocating", "for", "ai", "rights", "and", "counter", "arguments", "from", "tech", "leaders"};
+    vector<string> expected_vector2 = {
+    "ai", "boosts", "career", "does", "not", "replace", "it", "real", "work", "lessons", "from", "engineer", "who", "uses", "ai", "as", "second", "brain", "from", "the", "economic", "times",
+    "this", "piece", "focuses", "on", "how", "ai", "is", "being", "used", "as", "a", "tool", "to", "enhance", "human", "productivity", "rather", "than", "replace", "jobs",
+    "it", "includes", "an", "example", "of", "a", "software", "engineer", "who", "uses", "ai", "to", "accelerate", "projects", "and", "improve", "his", "workflow",
+    "ai", "bringing", "dinosaurs", "to", "life", "how", "scientists", "are", "turning", "jurassic", "park", "into", "reality", "from", "the", "times", "of", "india",
+    "this", "article", "explores", "how", "ai", "is", "being", "used", "in", "paleontology", "to", "reconstruct", "fossils", "generate", "realistic", "visuals", "of", "dinosaurs",
+    "and", "even", "hypothesize", "genetic", "sequences"};
+    sort(vt.begin(),vt.end());
+    vector<string> tokens1 = vt[0].get_tokens();
+    vector<string> tokens2 = vt[1].get_tokens();
+    vector<string> tokens3 = vt[2].get_tokens();
+    vector<string> tokens4 = vt[3].get_tokens();
+    EXPECT_EQ(tokens1,expected_vector1);
+    EXPECT_EQ(tokens2,expected_vector2);
+    EXPECT_EQ(tokens3,expected_vector3);
+    EXPECT_EQ(tokens4,expected_vector4);
 }

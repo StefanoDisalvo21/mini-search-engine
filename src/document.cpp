@@ -24,6 +24,7 @@ vector<Document> DomLoad::load_data(const string& data_path){
             }
             Document doc(entry.path().filename().string(),cont);
             doc.normalization();
+            doc.tokenization();
             ds.push_back(doc);
          
         }

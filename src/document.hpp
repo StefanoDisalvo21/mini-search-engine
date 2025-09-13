@@ -23,7 +23,7 @@ class Document{
     void normalization();
     const string get_file_name() {return file_name;}
     const string get_file_content() {return content;};
-    const vector<string> get_tokens(){return tokens;}
+    const vector<string>& get_tokens() const {return tokens;}
     bool operator==(const Document &doc2) const{
       return file_name==doc2.file_name&&
       content==doc2.content;
