@@ -12,6 +12,7 @@ class SearchEngine{
     private:
         unordered_map<string, unordered_map<string,int>> index;
     public:
-        void build_index(vector<Document>& data);
+        const unordered_map<string,unordered_map<string,int>>& get_index() const {return index;};
+        void build_index(vector<Document>& data_vector);
         vector<pair<string,double>> search(string& query);
 };
