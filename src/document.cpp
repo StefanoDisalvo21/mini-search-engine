@@ -5,7 +5,7 @@ namespace fs = std::filesystem;
 
 //loading data from the folder
 vector<Document> DomLoad::load_data(const string& data_path){
-    vector<Document> ds;
+    vector<Document> document_data;
     if(!fs::exists(data_path)){
         throw invalid_argument("The path does not exist");
     }
@@ -25,11 +25,11 @@ vector<Document> DomLoad::load_data(const string& data_path){
             Document doc(entry.path().filename().string(),cont);
             doc.normalization();
             doc.tokenization();
-            ds.push_back(doc);
+            document_data.push_back(doc);
          
         }
     }
-    return ds;
+    return document_data;
 }//end loading vectors
 
 //function to normalize
