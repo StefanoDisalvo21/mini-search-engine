@@ -22,10 +22,15 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     double tf_idf=0;
     for(auto& tok: query_tokens){
         for(auto& data_tok:data_vector){
-            term_frequency=index[tok][data_tok.get_file_name()]/data_tok.get_tokens().size();
-            inverse_document_frequency= log10(number_of_documents/index[tok].size());
-            tf_idf=term_frequency*inverse_document_frequency;
-            query_index_score[data_tok.get_file_name()]+=tf_idf;
+            if(index.find(tok)!=index.end()){
+                auto& doc_map = index[tok];
+                if(doc_map.find(data_tok.get_file_name())!=doc_map.end()){
+                    term_frequency=static_cast<double>(index[tok][data_tok.get_file_name()])/static_cast<double>(data_tok.get_tokens().size());
+                    inverse_document_frequency= log10(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size()));
+                    tf_idf=term_frequency*inverse_document_frequency;
+                    query_index_score[data_tok.get_file_name()]+=tf_idf;
+                }
+            }
         }
     }
     for(auto& elements:query_index_score){
