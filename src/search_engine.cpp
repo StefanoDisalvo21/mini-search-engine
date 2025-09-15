@@ -26,7 +26,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
                 auto& doc_map = index[tok];
                 if(doc_map.find(data_tok.get_file_name())!=doc_map.end()){
                     term_frequency=static_cast<double>(index[tok][data_tok.get_file_name()])/static_cast<double>(data_tok.get_tokens().size());
-                    inverse_document_frequency= log10(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size()));
+                    inverse_document_frequency= log10(1+(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size())));
                     tf_idf=term_frequency*inverse_document_frequency;
                     query_index_score[data_tok.get_file_name()]+=tf_idf;
                 }

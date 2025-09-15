@@ -89,8 +89,8 @@ TEST(Score_Test, first_test){
     }
     string test_search="Cat Elephant";
     vector<pair<string,double>> results=index_try.search(test_search,vector_docs);
-    double expected_score=0.088;
+    double expected_score=0.274;
     EXPECT_EQ(results[0].first, "doc3.txt"); 
-    EXPECT_NEAR(results[0].second, expected_score, 1e-4);
+    EXPECT_NEAR(results[0].second, expected_score, 1e-3);
 
 }

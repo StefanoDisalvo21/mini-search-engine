@@ -20,7 +20,7 @@ vector<Document> DomLoad::load_data(const string& data_path){
                 throw invalid_argument("Cannot open the file");
             }
             while(getline(ist,word)){
-                cont+=word;
+                cont += word;
             }
             Document doc(entry.path().filename().string(),cont);
             icu::UnicodeString norm_string = helpers::normalization(cont);
