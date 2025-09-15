@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <filesystem>
+#include <cmath>
 #include "document.hpp"
 #include "helpers_function.hpp"
 using namespace std;

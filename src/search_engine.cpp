@@ -16,6 +16,15 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     vector<string> query_tokens = helpers::tokenization(normalized_string);
     unordered_map<string,double> query_index;
     int number_of_documents = data_vector.size();
-    int term_frequency=0;
-    int inverse_document_frequency=0;
+    double term_frequency=0;
+    double inverse_document_frequency=0;
+    double tf_idf=0;
+    for(auto& tok: query_tokens){
+        for(auto& data_tok:data_vector){
+            term_frequency=index[tok][data_tok.get_file_name()]/data_tok.get_tokens().size();
+            inverse_document_frequency= log10(number_of_documents/index[tok].size());
+            tf_idf=term_frequency*inverse_document_frequency;
+            query_index[data_tok.get_file_name()]+=tf_idf;
+        }
+    }
 }
