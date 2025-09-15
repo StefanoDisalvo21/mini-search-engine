@@ -44,7 +44,6 @@ TEST(Load_Test,second_test){
     EXPECT_THROW(dom_obj.load_data(ds),invalid_argument);
 
 }
-
 TEST(Load_Test,third_test){
     DomLoad dom_obj;
     string ds="../../data";
@@ -85,27 +84,35 @@ TEST(Load_Test,fifth_test){
     EXPECT_EQ(vt[2].get_file_content(),test_strings::content3);
     EXPECT_EQ(vt[3].get_file_content(),test_strings::content4);
 }
-
 TEST(Tokenization,first_Test){
     Document obj("art.txt","DomLoad is a class");
-    obj.normalization();
-    obj.tokenization();
+    string cont= obj.get_file_content();
+    icu::UnicodeString norm_string = helpers::normalization(cont);
+    obj.set_normalized_string(norm_string);
+    vector<string> tokens= helpers::tokenization(norm_string);
+    obj.set_tokens(tokens);
     vector<string> expected_vector = {"domload","is","a","class"};
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
 TEST(Tokenization, second_test){
     Document obj("art.txt","The document loading routine isn't working");
-    obj.normalization();
-    obj.tokenization();
+    string cont= obj.get_file_content();
+    icu::UnicodeString norm_string = helpers::normalization(cont);
+    obj.set_normalized_string(norm_string);
+    vector<string> tokens= helpers::tokenization(norm_string);
+    obj.set_tokens(tokens);
     vector<string> expected_vector = {"the","document","loading","routine","isn't","working"};
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
 TEST(Tokenization, third_test){
     Document obj("art.txt",test_strings::content1);
-    obj.normalization();
-    obj.tokenization();
+    string cont= obj.get_file_content();
+    icu::UnicodeString norm_string = helpers::normalization(cont);
+    obj.set_normalized_string(norm_string);
+    vector<string> tokens= helpers::tokenization(norm_string);
+    obj.set_tokens(tokens);
     vector<string> expected_vector = {
     "the", "birth", "of", "artificial", "intelligence", "ai", "research",
     "by", "lawrence", "livermore", "national", "laboratory",

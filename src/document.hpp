@@ -18,12 +18,12 @@ class Document{
     vector<string> tokens;
   public:
     Document(const string& fname, const string& text)
-    :file_name(fname),content(text){};
-    void tokenization();
-    void normalization();
+    :file_name(fname),content(text){}
     const string get_file_name() {return file_name;}
-    const string get_file_content() {return content;};
+    const string get_file_content() {return content;}
     const vector<string>& get_tokens() const {return tokens;}
+    void set_tokens(vector<string>& tok) {tokens=tok;}
+    void set_normalized_string(icu::UnicodeString & norm_string){normalized_string=norm_string;}
     bool operator==(const Document &doc2) const{
       return file_name==doc2.file_name&&
       content==doc2.content;

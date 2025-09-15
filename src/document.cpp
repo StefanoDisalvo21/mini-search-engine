@@ -23,40 +23,12 @@ vector<Document> DomLoad::load_data(const string& data_path){
                 cont+=word;
             }
             Document doc(entry.path().filename().string(),cont);
-            doc.normalization();
-            doc.tokenization();
+            icu::UnicodeString norm_string = helpers::normalization(cont);
+            doc.set_normalized_string(norm_string);
+            vector<string> tokens= helpers::tokenization(norm_string);
+            doc.set_tokens(tokens);
             document_data.push_back(doc);
-         
         }
     }
     return document_data;
 }//end loading vectors
-
-//function to normalize
-void Document::normalization(){
-    UErrorCode error= U_ZERO_ERROR;
-    icu::UnicodeString txt_unicode = icu::UnicodeString::fromUTF8(content);
-    const icu::Normalizer2* norm = icu::Normalizer2::getNFCInstance(error);
-    norm->normalize(txt_unicode,normalized_string,error);
-    normalized_string.toLower();
-}
-
-void Document::tokenization(){
-    UErrorCode error= U_ZERO_ERROR;
-    icu::Locale loc("en");
-    icu::BreakIterator* brk =icu::BreakIterator::createWordInstance(loc,error);
-    brk->setText(normalized_string);
-    int start=brk->first();
-    while(brk->next()!=icu::BreakIterator::DONE){
-        int end_phrase = brk->current();
-        int lenght_phrase = end_phrase-start;
-        icu::UnicodeString temp_token = normalized_string.tempSubString(start,lenght_phrase);
-        if(brk->getRuleStatus()==UBRK_WORD_LETTER||brk->getRuleStatus()==UBRK_WORD_NUMBER){
-            helpers::space_trim(temp_token);
-            string tok;
-            temp_token.toUTF8String(tok);
-            tokens.push_back(tok);
-        }
-        start = end_phrase;
-    }
-}
