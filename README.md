@@ -11,8 +11,6 @@
     HS student so I started reading books
     about code and related topics and work 
     on projects like this.
-    
-
 
 ## Goals 🎯
     - Learn About Algorithms
@@ -43,4 +41,16 @@
     The project uses the ICU [ICU (International Components for Unicode)]
     (https://icu.unicode.org/) library to handle strings.
 
+# Status
+    The project is active.
+    The main goal of implementing indexing, 
+    tokenization and tf-idf search has been reached.
+
+    Although the goal has been achieved I plan to keep
+    working on the project, so I am studying hwo to add new
+    features and make it more accurate and efficient.
+    Updates will be likely to be less frequent than
+    they were during the initial phase  of the project 
+    but new features are planned to be delivered as soon 
+    as possible.
 ## Enjoy The Ride 🚀🚀
