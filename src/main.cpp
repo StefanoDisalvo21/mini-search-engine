@@ -12,11 +12,13 @@ int main(){
     DomLoad loader;
     SearchEngine working_engine;
     int choice;
-    const string data_information = "insert-path"; //the path need to be inserted manually with an absolute path
+    string data_information;
+    cout<<"\n\t--Mini Search Engine--\t\n";
+    cout<<"Insert The Data Path: ";
+    cin>>data_information;
     vector<Document> data_vector=loader.load_data(data_information);
     working_engine.build_index(data_vector);
     do{
-        cout<<"\n\t--Mini Search Engine--\t\n";
         cout<<"1)Search\n2)Quit\nChoose: ";
         cin>>choice;
         if(cin.fail()) {
