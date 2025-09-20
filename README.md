@@ -38,8 +38,12 @@
         README.md
 
 # Useful info
-    The project uses the ICU [ICU (International Components for Unicode)]
+    The project uses the [ICU (International Components for Unicode)]
     (https://icu.unicode.org/) library to handle strings.
+
+    ICU is distributed under the [ICU License]
+    (https://github.com/unicode-org/icu/blob/main/LICENSE),
+    a permissive open source license.
 
 # Status
     The project is active.
