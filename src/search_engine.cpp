@@ -14,8 +14,13 @@ void SearchEngine::build_index(vector<Document>& data_vector){
 vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>&data_vector){
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::tokenization(normalized_string);
-    unordered_map<string,double> query_index_score;
     vector<pair<string,double>> results;
+    calc_score(results, data_vector,query_tokens);
+    return results;
+}
+
+void SearchEngine::calc_score(vector<pair<string,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens){
+    unordered_map<string,double> query_index_score;
     int number_of_documents = data_vector.size();
     double term_frequency=0;
     double inverse_document_frequency=0;
@@ -34,8 +39,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
         }
     }
     for(auto& elements:query_index_score){
-        results.push_back({elements.first,elements.second});
+        results_vector.push_back({elements.first,elements.second});
     }
-    sort(results.begin(),results.end(), [](auto& a, auto& b){return a.second>b.second;});
-    return results;
+    sort(results_vector.begin(),results_vector.end(), [](auto& a, auto& b){return a.second>b.second;});
 }
