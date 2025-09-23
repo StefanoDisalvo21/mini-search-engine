@@ -15,11 +15,11 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::tokenization(normalized_string);
     vector<pair<string,double>> results;
-    calc_score(results, data_vector,query_tokens);
+    evaluate_score(results, data_vector,query_tokens);
     return results;
 }
 
-void SearchEngine::calc_score(vector<pair<string,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens){
+void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens){
     unordered_map<string,double> query_index_score;
     int number_of_documents = data_vector.size();
     double term_frequency=0;
