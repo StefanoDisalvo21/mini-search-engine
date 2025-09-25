@@ -92,6 +92,7 @@ TEST(Tokenization,first_Test){
     vector<string> tokens= helpers::tokenization(norm_string);
     obj.set_tokens(tokens);
     vector<string> expected_vector = {"domload","is","a","class"};
+    sort(expected_vector.begin(),expected_vector.end());
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
@@ -103,6 +104,7 @@ TEST(Tokenization, second_test){
     vector<string> tokens= helpers::tokenization(norm_string);
     obj.set_tokens(tokens);
     vector<string> expected_vector = {"the","document","loading","routine","isn't","working"};
+    sort(expected_vector.begin(),expected_vector.end());
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
@@ -123,6 +125,7 @@ TEST(Tokenization, third_test){
     "this", "article", "offers", "a", "detailed", "timeline", "including", "historical", "and", "fictional", "precedents", "for", "ai",
     "such", "as", "jonathan", "swift's", "gulliver's", "travels", "and", "key", "early", "developments", "like", "the", "creation", "of", "the", "first", "chatbot", "eliza", "in", "1966"};
     vector<string> object_vector = obj.get_tokens();
+    sort(expected_vector.begin(),expected_vector.end());
     EXPECT_EQ(object_vector,expected_vector);
 }
 TEST(Tokenization, fourth_test){
@@ -161,6 +164,10 @@ TEST(Tokenization, fourth_test){
     "this", "article", "explores", "how", "ai", "is", "being", "used", "in", "paleontology", "to", "reconstruct", "fossils", "generate", "realistic", "visuals", "of", "dinosaurs",
     "and", "even", "hypothesize", "genetic", "sequences"};
     sort(vt.begin(),vt.end());
+    sort(expected_vector1.begin(),expected_vector1.end());
+    sort(expected_vector2.begin(),expected_vector2.end());
+    sort(expected_vector3.begin(),expected_vector3.end());
+    sort(expected_vector4.begin(),expected_vector4.end());
     vector<string> tokens1 = vt[0].get_tokens();
     vector<string> tokens2 = vt[1].get_tokens();
     vector<string> tokens3 = vt[2].get_tokens();

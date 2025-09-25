@@ -43,6 +43,7 @@ namespace helpers{
             }
             start = end_phrase;
         }
+        sort(tokens.begin(),tokens.end());
         return tokens;
     }
 };
