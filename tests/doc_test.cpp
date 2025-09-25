@@ -177,3 +177,18 @@ TEST(Tokenization, fourth_test){
     EXPECT_EQ(tokens3,expected_vector3);
     EXPECT_EQ(tokens4,expected_vector4);
 }
+
+TEST(Boolean_Test, first_test){
+    vector<string> vt = {"hi","hello","test"};
+    EXPECT_FALSE(helpers::is_boolean_query(vt));
+}
+
+TEST(Boolean_Test, second_test){
+    vector<string> vt = {"hi","not","test"};
+    EXPECT_TRUE(helpers::is_boolean_query(vt));
+}
+
+TEST(Boolean_Test, third_test){
+    vector<string> vt = {"hi","and","test"};
+    EXPECT_TRUE(helpers::is_boolean_query(vt));
+}

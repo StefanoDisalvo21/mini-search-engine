@@ -46,4 +46,13 @@ namespace helpers{
         sort(tokens.begin(),tokens.end());
         return tokens;
     }
+
+    bool is_boolean_query(vector<string>& query_token){
+        for(auto& tok: query_token){
+            if(tok=="and"||tok=="or"||tok=="not"){
+                return true;
+            }
+        }
+        return false;
+    }
 };
