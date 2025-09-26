@@ -3,15 +3,19 @@ using namespace std;
 
 namespace fs = std::filesystem;
 
-//loading data from the folder
+//load data
 vector<Document> DomLoad::load_data(const string& data_path){
     vector<Document> document_data;
+
+    //path existence check
     if(!fs::exists(data_path)){
         throw invalid_argument("The path does not exist");
     }
     if(!fs::is_directory(data_path)){
         throw invalid_argument("Not a directory");
     }
+
+    //reading each document
     for(auto& entry:fs::directory_iterator(data_path)){
         string cont,word;
         if(fs::path(entry).extension().string()==".txt"){
@@ -31,4 +35,4 @@ vector<Document> DomLoad::load_data(const string& data_path){
         }
     }
     return document_data;
-}//end loading vectors
+}

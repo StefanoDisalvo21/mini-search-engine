@@ -5,12 +5,15 @@ namespace helpers{
     void space_trim(icu::UnicodeString& token){
         int first=0;
         int last_position = token.length()-1;
+        //checking if the first char of the string is a space, if so moving the first pos of the string
         while(u_isWhitespace_77(token.char32At(first))&&first<last_position){
             first++;
         }
+        //checking if the last char of the string is a space, if so moving the last pos of the string
         while(u_isWhitespace_77(token.char32At(last_position))&&last_position>first){
             last_position--;
         }
+        //trimming
         token = token.tempSubString(first,last_position-first+1);
     }
     //function to normalize
@@ -31,10 +34,12 @@ namespace helpers{
         icu::BreakIterator* brk =icu::BreakIterator::createWordInstance(loc,error);
         brk->setText(normalized_string);
         int start=brk->first();
+        //looping each token of the document
         while(brk->next()!=icu::BreakIterator::DONE){
             int end_phrase = brk->current();
             int lenght_phrase = end_phrase-start;
             icu::UnicodeString temp_token = normalized_string.tempSubString(start,lenght_phrase);
+            //check if the token is a word/number or not
             if(brk->getRuleStatus()==UBRK_WORD_LETTER||brk->getRuleStatus()==UBRK_WORD_NUMBER){
                 helpers::space_trim(temp_token);
                 string tok;
@@ -46,7 +51,7 @@ namespace helpers{
         sort(tokens.begin(),tokens.end());
         return tokens;
     }
-
+    
     bool is_boolean_query(vector<string>& query_token){
         for(auto& tok: query_token){
             if(tok=="and"||tok=="or"||tok=="not"){

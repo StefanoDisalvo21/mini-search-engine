@@ -25,11 +25,15 @@ void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vec
     double term_frequency=0;
     double inverse_document_frequency=0;
     double tf_idf=0;
+    //searching for each token in each doc
     for(auto& tok: query_tokens){
         for(auto& data_tok:data_vector){
+            //checking if the token is in the index
             if(index.find(tok)!=index.end()){
                 auto& doc_map = index[tok];
+                //check if the token is in the docs
                 if(doc_map.find(data_tok.get_file_name())!=doc_map.end()){
+                    //score evaluation
                     term_frequency=static_cast<double>(index[tok][data_tok.get_file_name()])/static_cast<double>(data_tok.get_tokens().size());
                     inverse_document_frequency= log10(1+(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size())));
                     tf_idf=term_frequency*inverse_document_frequency;
