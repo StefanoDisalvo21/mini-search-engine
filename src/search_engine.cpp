@@ -15,7 +15,22 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::tokenization(normalized_string);
     vector<pair<string,double>> results;
-    evaluate_score(results, data_vector,query_tokens);
+    //check if the query is boolean
+    if(helpers::is_boolean_query(query_tokens)==true){
+        vector<Document>filtered_document;
+        //check tokens and skip boolean words
+        for(auto& tok:query_tokens){
+            if(tok=="and"||tok=="not"||tok=="or"){
+                continue;
+            }
+            else{
+                //processing boolean queries to be implemented
+            }
+        }
+    }
+    else{
+        evaluate_score(results, data_vector,query_tokens);
+    }
     return results;
 }
 
