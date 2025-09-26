@@ -17,5 +17,5 @@ class SearchEngine{
         void build_index(vector<Document>& data_vector);
         vector<pair<string,double>> search(string& query,vector<Document>& data_vector);
         void evaluate_score(vector<pair<string,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens);
-        void filter_document(vector<Document>& filtered_docs);
+        void filter_document(vector<Document>& filtered_docs,vector<string>& query_token);
 };
