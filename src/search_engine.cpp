@@ -62,3 +62,17 @@ void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vec
     }
     sort(results_vector.begin(),results_vector.end(), [](auto& a, auto& b){return a.second>b.second;});
 }
+
+//displaying results
+void SearchEngine::display_results(vector<pair<string,double>>& query_results){
+    if(query_results.size()==0){
+        cout<<"\nNo corrispondece in the documents\n";
+    }
+    else{
+        int i=1;
+        for(auto& x:query_results){
+            cout<<i<<". - "<<x.first<<" - Score: "<<x.second<<endl;
+            ++i;
+        }
+    }
+}

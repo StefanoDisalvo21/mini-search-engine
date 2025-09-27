@@ -33,11 +33,7 @@ int main(){
             cout<<"\nSearch: ";
             getline(cin,query);
             vector<pair<string,double>> query_results=working_engine.search(query,data_vector);
-            int i=1;
-            for(auto& x:query_results){
-                cout<<i<<". - "<<x.first<<" - Score: "<<x.second<<endl;
-                ++i;
-            }
+            working_engine.display_results(query_results);
         }
         else if(choice==2){
             cout<<"\nThanks, see you next time"<<endl;
