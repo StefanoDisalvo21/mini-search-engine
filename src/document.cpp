@@ -6,7 +6,7 @@ namespace fs = std::filesystem;
 //load data
 vector<Document> DomLoad::load_data(const string& data_path){
     vector<Document> document_data;
-
+    int doc_id=0;
     //path existence check
     if(!fs::exists(data_path)){
         throw invalid_argument("The path does not exist");
@@ -14,7 +14,7 @@ vector<Document> DomLoad::load_data(const string& data_path){
     if(!fs::is_directory(data_path)){
         throw invalid_argument("Not a directory");
     }
-
+    
     //reading each document
     for(auto& entry:fs::directory_iterator(data_path)){
         string cont,word;
@@ -33,6 +33,12 @@ vector<Document> DomLoad::load_data(const string& data_path){
             doc.set_tokens(tokens);
             document_data.push_back(doc);
         }
+    }
+    sort(document_data.begin(),document_data.end());
+    //giving each doc an id based on alphabetical order
+    for(auto& doc:document_data){
+        doc.set_document_id(doc_id);
+        ++doc_id;
     }
     return document_data;
 }

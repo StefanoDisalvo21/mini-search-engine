@@ -14,6 +14,7 @@ class Document{
   private:
     string file_name;
     string content;
+    int document_id=0;
     icu::UnicodeString normalized_string;
     vector<string> tokens;
   public:
@@ -22,7 +23,9 @@ class Document{
     const string get_file_name() {return file_name;}
     const string get_file_content() {return content;}
     const vector<string>& get_tokens() const {return tokens;}
+    const int get_doc_id() const {return document_id;}
     void set_tokens(vector<string>& tok) {tokens=tok;}
+    void set_document_id(int& doc_id){document_id=doc_id;}
     void set_normalized_string(icu::UnicodeString & norm_string){normalized_string=norm_string;}
     bool operator==(const Document &doc2) const{
       return file_name==doc2.file_name&&

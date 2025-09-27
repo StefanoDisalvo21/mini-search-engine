@@ -24,7 +24,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
                 continue;
             }
             else{
-                //processing boolean queries to be implemented
+
             }
         }
     }

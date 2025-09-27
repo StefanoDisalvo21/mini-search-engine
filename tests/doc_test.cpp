@@ -84,6 +84,23 @@ TEST(Load_Test,fifth_test){
     EXPECT_EQ(vt[2].get_file_content(),test_strings::content3);
     EXPECT_EQ(vt[3].get_file_content(),test_strings::content4);
 }
+TEST(Load_Test,sixth_test){
+    DomLoad dom_obj;
+    string ds="../../data";
+    vector<Document> vt = dom_obj.load_data(ds);
+    sort(vt.begin(),vt.end());
+    EXPECT_EQ(vt[0].get_doc_id(),0);
+    EXPECT_EQ(vt[1].get_doc_id(),1);
+    EXPECT_EQ(vt[2].get_doc_id(),2);
+    EXPECT_EQ(vt[3].get_doc_id(),3);
+}
+TEST(Load_Test,seventh_test){
+    DomLoad dom_obj;
+    string ds="../../data";
+    vector<Document> vt = dom_obj.load_data(ds);
+    sort(vt.begin(),vt.end());
+    EXPECT_FALSE(vt[0].get_doc_id()==3);
+}
 TEST(Tokenization,first_Test){
     Document obj("art.txt","DomLoad is a class");
     string cont= obj.get_file_content();
