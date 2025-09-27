@@ -209,3 +209,7 @@ TEST(Boolean_Test, third_test){
     vector<string> vt = {"hi","and","test"};
     EXPECT_TRUE(helpers::is_boolean_query(vt));
 }
+TEST(Boolean_Test, fourth_test){
+    vector<string> vt = {"hi","or","test"};
+    EXPECT_TRUE(helpers::is_boolean_query(vt));
+}
