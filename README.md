@@ -38,25 +38,25 @@
         README.md
 
 # Useful info
-The project uses the [ICU (International Components for Unicode)]
-(https://icu.unicode.org/) library to handle strings.
-ICU is distributed under the [ICU License](https://github.com/unicode-org/icu/blob/main/LICENSE),
-a permissive open source license.
------
-See more on the **LICENSE**
+    The project uses the [ICU (International Components for Unicode)]
+    (https://icu.unicode.org/) library to handle strings.
+    ICU is distributed under the [ICU License](https://github.com/unicode-org/icu/blob/main/LICENSE),
+    a permissive open source license.
+    -----
+    See more on the LICENSE
 
 # Status
-The project is active.
-The main goal of implementing indexing, 
-tokenization and tf-idf search has been reached.
+    The project is active.
+    The main goal of implementing indexing, 
+    tokenization and tf-idf search has been reached.
 
-Although the goal has been achieved I plan to keep
-working on the project, so I am studying hwo to add new
-features and make it more accurate and efficient.
-Updates will be likely to be less frequent than
-they were during the initial phase  of the project 
-but new features are planned to be delivered as soon 
-as possible.
-It is also planned to release the Software via
-GitHub Releases.
+    Although the goal has been achieved I plan to keep
+    working on the project, so I am studying hwo to add new
+    features and make it more accurate and efficient.
+    Updates will be likely to be less frequent than
+    they were during the initial phase  of the project 
+    but new features are planned to be delivered as soon 
+    as possible.
+    It is also planned to release the Software via
+    GitHub Releases.
 ## Enjoy The Ride 🚀🚀
