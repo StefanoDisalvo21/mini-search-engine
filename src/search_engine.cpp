@@ -18,7 +18,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     //check if the query is boolean
     if(helpers::is_boolean_query(query_tokens)==true){
         vector<Document>filtered_document;
-        filter_document(filtered_document,query_tokens);
+        filter_document(filtered_document,query_tokens,data_vector);
         evaluate_score(results,filtered_document,query_tokens);
     }
     else{
@@ -72,6 +72,24 @@ void SearchEngine::display_results(vector<pair<string,double>>& query_results){
 
 
 //filter document
-void SearchEngine::filter_document(vector<Document>& filtered_doc, vector<string>& query_tokens){
+void SearchEngine::filter_document(vector<Document>& filtered_doc, vector<string>& query_tokens, vector<Document>& data_vector){
+        //check tokens and skip boolean words
+    for(auto& tok:query_tokens){
+        if(tok=="and"||tok=="not"||tok=="or"){
+            continue;
+        }
+        else{
+            for(auto& data_tok:data_vector){
+                //checking if the token is in the index
+                if(index.find(tok)!=index.end()){
+                    auto& doc_map = index[tok];
+                    //check if the token is in the docs
+                    if(doc_map.find(data_tok.get_file_name())!=doc_map.end()){
 
+                    }
+                }
+                
+            }
+        }
+    }
 }
