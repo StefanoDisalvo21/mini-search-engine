@@ -17,7 +17,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     vector<string> query_tokens = helpers::tokenization(normalized_string);
     vector<pair<string,double>> results;
     //check if the query is boolean
-    if(helpers::is_boolean_query(query_tokens)==true){
+    if(helpers::is_boolean_query(query_tokens)==true&&query_tokens.size()==3){
         vector<Document>filtered_document;
         filter_document(filtered_document,query_tokens,data_vector);
         evaluate_score(results,filtered_document,query_tokens);
@@ -75,14 +75,5 @@ void SearchEngine::display_results(vector<pair<string,double>>& query_results){
 
 //filter document
 void SearchEngine::filter_document(vector<Document>& filtered_doc, vector<string>& query_tokens, vector<Document>& data_vector){
-    vector<vector<string>> posting_list;
-    for(auto& elements:index){
-        unordered_map<string, int> doc_and_score_index;
-        doc_and_score_index = elements.second;
-        for(auto& keys:doc_and_score_index){
-            vector<string> aux_keys_vector;
-            aux_keys_vector.push_back(keys.first);
-            posting_list.push_back(aux_keys_vector);
-        }
-    }
+
 }

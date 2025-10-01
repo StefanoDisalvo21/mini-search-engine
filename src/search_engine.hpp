@@ -5,6 +5,7 @@
 #include <fstream>
 #include <filesystem>
 #include <cmath>
+#include <unordered_set>
 #include "document.hpp"
 #include "helpers_function.hpp"
 using namespace std;
