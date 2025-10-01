@@ -16,15 +16,7 @@ vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::tokenization(normalized_string);
     vector<pair<string,double>> results;
-    //check if the query is boolean
-    if(helpers::is_boolean_query(query_tokens)==true&&query_tokens.size()==3){
-        vector<Document>filtered_document;
-        filter_document(filtered_document,query_tokens,data_vector);
-        evaluate_score(results,filtered_document,query_tokens);
-    }
-    else{
-        evaluate_score(results, data_vector,query_tokens);
-    }
+    evaluate_score(results, data_vector,query_tokens);
     return results;
 }
 
