@@ -63,9 +63,3 @@ void SearchEngine::display_results(vector<pair<string,double>>& query_results){
         }
     }
 }
-
-
-//filter document
-void SearchEngine::filter_document(vector<Document>& filtered_doc, vector<string>& query_tokens, vector<Document>& data_vector){
-
-}
