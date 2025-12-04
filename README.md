@@ -12,20 +12,8 @@
     about code and related topics and work 
     on projects like this.
 
-    Update (October 2025):
-    The goals that I set at the beginning
-    of the project took more or less
-    a month to be reached, all this month
-    of working taught me so much, as already
-    said this is my first project as an HS student
-    not enrolled in university yet, the user experience 
-    is very poor with basic interaction
-    but the goal was only on the logic
-    since it is what I do really love.
-    Anyway I really enjoyed working on this and 
-    I want to push even more and learn
-    more to get better everyday at what I love.
-    
+    Check Updates to know what has been done
+    and what will be done soon.
 
 ## Goals 🎯
     - Learn About Algorithms
@@ -35,6 +23,7 @@
     - Learn how to work with git with the aim to be able to help and give 
     contributions in open source projects
     - Learn how to write tests using "Google Test".
+
     
 
 
@@ -60,8 +49,7 @@
 
 
 # Status
-    The project is now ended (current date: October 2025).
-
+    The project is now resumed (current date: December 2025).
     The main goal of implementing indexing, 
     tokenization and tf-idf search has been reached.
     Although the goal has been achieved, the project
