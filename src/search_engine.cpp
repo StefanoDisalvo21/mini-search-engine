@@ -14,7 +14,7 @@ void SearchEngine::build_index(vector<Document>& data_vector){
 //processing query
 vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>&data_vector){
     icu::UnicodeString normalized_string=helpers::normalization(query);
-    vector<string> query_tokens = helpers::tokenization(normalized_string);
+    vector<string> query_tokens = helpers::doc_tokenization(normalized_string);
     vector<pair<string,double>> results;
     evaluate_score(results, data_vector,query_tokens);
     return results;

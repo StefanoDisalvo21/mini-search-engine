@@ -29,7 +29,7 @@ vector<Document> DomLoad::load_data(const string& data_path){
             Document doc(entry.path().filename().string(),cont);
             icu::UnicodeString norm_string = helpers::normalization(cont);
             doc.set_normalized_string(norm_string);
-            vector<string> tokens= helpers::tokenization(norm_string);
+            vector<string> tokens= helpers::doc_tokenization(norm_string);
             doc.set_tokens(tokens);
             document_data.push_back(doc);
         }

@@ -101,36 +101,36 @@ TEST(Load_Test,seventh_test){
     sort(vt.begin(),vt.end());
     EXPECT_FALSE(vt[0].get_doc_id()==3);
 }
-TEST(Tokenization,first_Test){
+TEST(doc_tokenization,first_Test){
     Document obj("art.txt","DomLoad is a class");
     string cont= obj.get_file_content();
     icu::UnicodeString norm_string = helpers::normalization(cont);
     obj.set_normalized_string(norm_string);
-    vector<string> tokens= helpers::tokenization(norm_string);
+    vector<string> tokens= helpers::doc_tokenization(norm_string);
     obj.set_tokens(tokens);
     vector<string> expected_vector = {"domload","is","a","class"};
     sort(expected_vector.begin(),expected_vector.end());
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
-TEST(Tokenization, second_test){
+TEST(doc_tokenization, second_test){
     Document obj("art.txt","The document loading routine isn't working");
     string cont= obj.get_file_content();
     icu::UnicodeString norm_string = helpers::normalization(cont);
     obj.set_normalized_string(norm_string);
-    vector<string> tokens= helpers::tokenization(norm_string);
+    vector<string> tokens= helpers::doc_tokenization(norm_string);
     obj.set_tokens(tokens);
     vector<string> expected_vector = {"the","document","loading","routine","isn't","working"};
     sort(expected_vector.begin(),expected_vector.end());
     vector<string> object_vector = obj.get_tokens();
     EXPECT_EQ(object_vector,expected_vector);
 }
-TEST(Tokenization, third_test){
+TEST(doc_tokenization, third_test){
     Document obj("art.txt",test_strings::content1);
     string cont= obj.get_file_content();
     icu::UnicodeString norm_string = helpers::normalization(cont);
     obj.set_normalized_string(norm_string);
-    vector<string> tokens= helpers::tokenization(norm_string);
+    vector<string> tokens= helpers::doc_tokenization(norm_string);
     obj.set_tokens(tokens);
     vector<string> expected_vector = {
     "the", "birth", "of", "artificial", "intelligence", "ai", "research",
@@ -145,7 +145,7 @@ TEST(Tokenization, third_test){
     sort(expected_vector.begin(),expected_vector.end());
     EXPECT_EQ(object_vector,expected_vector);
 }
-TEST(Tokenization, fourth_test){
+TEST(doc_tokenization, fourth_test){
     DomLoad dom_obj;
     string ds="../../data";
     vector<Document> vt = dom_obj.load_data(ds);
@@ -193,23 +193,4 @@ TEST(Tokenization, fourth_test){
     EXPECT_EQ(tokens2,expected_vector2);
     EXPECT_EQ(tokens3,expected_vector3);
     EXPECT_EQ(tokens4,expected_vector4);
-}
-
-TEST(Boolean_Test, first_test){
-    vector<string> vt = {"hi","hello","test"};
-    EXPECT_FALSE(helpers::is_boolean_query(vt));
-}
-
-TEST(Boolean_Test, second_test){
-    vector<string> vt = {"hi","not","test"};
-    EXPECT_TRUE(helpers::is_boolean_query(vt));
-}
-
-TEST(Boolean_Test, third_test){
-    vector<string> vt = {"hi","and","test"};
-    EXPECT_TRUE(helpers::is_boolean_query(vt));
-}
-TEST(Boolean_Test, fourth_test){
-    vector<string> vt = {"hi","or","test"};
-    EXPECT_TRUE(helpers::is_boolean_query(vt));
 }
