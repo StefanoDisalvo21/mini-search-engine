@@ -22,9 +22,9 @@ include_directories(${ICU_INCLUDE_DIR})
 
 
 set(ICU_LIBS
-    ${ICU_LIBRARY_DIR}/libicuuc.dylib
-    ${ICU_LIBRARY_DIR}/libicui18n.dylib
-    ${ICU_LIBRARY_DIR}/libicudata.dylib
+    ${ICU_LIBRARY_DIR}/libicuuc.a
+    ${ICU_LIBRARY_DIR}/libicui18n.a
+    ${ICU_LIBRARY_DIR}/libicudata.a
 )
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
