@@ -14,7 +14,8 @@
     I want to push even more and learn
     more to get better everyday at what I love.
     
-    Update (December 2025):
+    Update (March 2026):
     The project has been resumed and the selected
     goal is to implement boolean queries in order
     to make the engine more efficient.
+    

@@ -53,7 +53,8 @@
     The main goal of implementing indexing, 
     tokenization and tf-idf search has been reached.
     Although the goal has been achieved, the project
-    could become active again to be improved in the
-    future.
+    is now active again with the aim of making it better
+    and of publishing it via Github Releases 
+    for MacOs platform.
     
 ## Enjoy The Ride 🚀🚀
