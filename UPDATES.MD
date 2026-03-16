@@ -15,7 +15,8 @@
     more to get better everyday at what I love.
     
     Update (March 2026):
-    The project has been resumed and the selected
-    goal is to implement boolean queries in order
-    to make the engine more efficient.
+    The project has been paused due current lack of
+    knowledge, which requires to be covered with studying,
+    menawhile check my profile because other prijects will
+    start again.
     
