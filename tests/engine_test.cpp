@@ -89,7 +89,7 @@ TEST(Score_Test, first_test){
     string test_search="Cat Elephant";
     vector<pair<int,double>> results=index_try.search(test_search,vector_docs);
     double expected_score=0.274;
-    cout<<docs3.get_doc_id()<<endl;
+
     EXPECT_EQ(results[0].first, 2); 
     EXPECT_NEAR(results[0].second, expected_score, 1e-3);
 
