@@ -32,7 +32,7 @@ int main(){
             string query;
             cout<<"\nSearch: ";
             getline(cin,query);
-            vector<pair<string,double>> query_results=working_engine.search(query,data_vector);
+            vector<pair<int,double>> query_results=working_engine.search(query,data_vector);
             working_engine.display_results(query_results);
         }
         else if(choice==2){

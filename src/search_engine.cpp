@@ -6,23 +6,23 @@ void SearchEngine::build_index(vector<Document>& data_vector){
     for(auto& data_docs:data_vector){
         vector<string> tokens = data_docs.get_tokens();
         for(auto& words:tokens){
-            index[words][data_docs.get_file_name()]++;
+            index[words][data_docs.get_doc_id()]++;
         }
     }
 }
 
 //processing query
-vector<pair<string,double>> SearchEngine::search(string& query, vector<Document>&data_vector){
+vector<pair<int,double>> SearchEngine::search(string& query, vector<Document>&data_vector){
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::doc_tokenization(normalized_string);
-    vector<pair<string,double>> results;
+    vector<pair<int,double>> results;
     evaluate_score(results, data_vector,query_tokens);
     return results;
 }
 
 //evaluating score
-void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens){
-    unordered_map<string,double> query_index_score;
+void SearchEngine::evaluate_score(vector<pair<int,double>>&results_vector,vector<Document>&data_vector,vector<string>&query_tokens){
+    unordered_map<int,double> query_index_score;
     int number_of_documents = data_vector.size();
     double term_frequency=0;
     double inverse_document_frequency=0;
@@ -34,12 +34,12 @@ void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vec
             if(index.find(tok)!=index.end()){
                 auto& doc_map = index[tok];
                 //check if the token is in the docs
-                if(doc_map.find(data_tok.get_file_name())!=doc_map.end()){
+                if(doc_map.find(data_tok.get_doc_id())!=doc_map.end()){
                     //score evaluation
-                    term_frequency=static_cast<double>(index[tok][data_tok.get_file_name()])/static_cast<double>(data_tok.get_tokens().size());
+                    term_frequency=static_cast<double>(index[tok][data_tok.get_doc_id()])/static_cast<double>(data_tok.get_tokens().size());
                     inverse_document_frequency= log10(1+(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size())));
                     tf_idf=term_frequency*inverse_document_frequency;
-                    query_index_score[data_tok.get_file_name()]+=tf_idf;
+                    query_index_score[data_tok.get_doc_id()]+=tf_idf;
                 }
             }
         }
@@ -51,7 +51,7 @@ void SearchEngine::evaluate_score(vector<pair<string,double>>&results_vector,vec
 }
 
 //displaying results
-void SearchEngine::display_results(vector<pair<string,double>>& query_results){
+void SearchEngine::display_results(vector<pair<int,double>>& query_results){
     if(query_results.size()==0){
         cout<<"\nNo corrispondece in the documents\n";
     }
