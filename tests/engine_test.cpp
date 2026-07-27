@@ -64,6 +64,12 @@ TEST(Score_Test, first_test){
     Document docs("doc1.txt", "cat dog cat mouse");
     Document docs2("doc2.txt", "dog dog elephant cat");
     Document docs3("doc3.txt", "mouse cat elephant elephant");
+    int a=0;
+    int b =1;
+    int c =2;
+    docs2.set_document_id(b);
+    docs.set_document_id(a);
+    docs3.set_document_id(c);
     vector<Document> vector_docs;
     string cont= docs.get_file_content();
     icu::UnicodeString norm_string = helpers::normalization(cont);
@@ -99,6 +105,12 @@ TEST(Score_Test, Second_Test){
     Document docs("doc1.txt", "Ai is better than math, but math is required to learn AI");
     Document docs2("doc2.txt", "Nothing is cool such as AI, but I think math is cool too");
     Document docs3("doc3.txt", "AI is cool, but learning it could be painful");
+    int a=0;
+    int b =1;
+    int c =2;
+    docs2.set_document_id(b);
+    docs.set_document_id(a);
+    docs3.set_document_id(c);
     vector<Document> vector_docs;
     string cont= docs.get_file_content();
     icu::UnicodeString norm_string = helpers::normalization(cont);
