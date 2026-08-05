@@ -50,15 +50,17 @@ void SearchEngine::evaluate_score(vector<pair<int,double>>&results_vector,vector
     sort(results_vector.begin(),results_vector.end(), [](auto& a, auto& b){return a.second>b.second;});
 }
 
+//function to translate from ids to filename 
+
 //displaying results
-void SearchEngine::display_results(vector<pair<int,double>>& query_results){
+void SearchEngine::display_results(vector<pair<int,double>>& query_results, vector<Document>&data_vector){
     if(query_results.size()==0){
         cout<<"\nNo corrispondece in the documents\n";
     }
     else{
         int i=1;
         for(auto& x:query_results){
-            cout<<i<<". - "<<x.first<<" - Score: "<<x.second<<endl;
+            cout<<i<<". - "<<data_vector[x.first].get_file_name()<<" - Score: "<<x.second<<endl;
             ++i;
         }
     }

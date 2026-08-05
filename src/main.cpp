@@ -33,7 +33,7 @@ int main(){
             cout<<"\nSearch: ";
             getline(cin,query);
             vector<pair<int,double>> query_results=working_engine.search(query,data_vector);
-            working_engine.display_results(query_results);
+            working_engine.display_results(query_results,data_vector);
         }
         else if(choice==2){
             cout<<"\nThanks, see you next time"<<endl;
