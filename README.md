@@ -47,6 +47,27 @@
     ICU is distributed under the [ICU License](https://github.com/unicode-org/icu/blob/main/LICENSE),
     a permissive open source license.
 
+    
+## Benchmark Dataset
+    Performance tests were conducted using the **Large Movie Review Dataset (aclImdb)** introduced by:
+
+    > Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, Christopher Potts.
+    > *Learning Word Vectors for Sentiment Analysis.*
+    > Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics (ACL-HLT), 2011.
+
+    ```bibtex
+    @InProceedings{maas-EtAl:2011:ACL-HLT2011,
+    author    = {Maas, Andrew L. and Daly, Raymond E. and Pham, Peter T.
+                and Huang, Dan and Ng, Andrew Y. and Potts, Christopher},
+    title     = {Learning Word Vectors for Sentiment Analysis},
+    booktitle = {Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies},
+    year      = {2011},
+    pages     = {142--150}
+    }
+    ```
+
+    The dataset contains **50,000 movie reviews** for binary sentiment classification. It is used in this project exclusively for indexing and search performance evaluation.
+
 
 # Status
     The project is now resumed (current date: December 2025).
