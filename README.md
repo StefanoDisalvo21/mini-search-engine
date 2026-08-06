@@ -35,7 +35,7 @@
         -tests
             -Tests File
             -CMakeLists.txt
-        -data (ignored)
+        -data
         -build (ignored)
         .gitignore
         CMakeLists.txt
