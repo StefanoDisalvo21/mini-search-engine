@@ -14,9 +14,5 @@
     I want to push even more and learn
     more to get better everyday at what I love.
     
-    Update (March 2026):
-    The project has been paused due current lack of
-    knowledge, which requires to be covered with studying,
-    menawhile check my profile because other prijects will
-    start again.
-    
+    Update (August 2026):
+    The project has been resumed.
