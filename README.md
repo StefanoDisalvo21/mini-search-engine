@@ -49,7 +49,7 @@
 
     
 ## Benchmark Dataset
-    Performance tests were conducted using the **Large Movie Review Dataset (aclImdb)** introduced by:
+    Performance tests were conducted on a M2 MacBook using the **Large Movie Review Dataset (aclImdb)** introduced by:
 
     > Andrew L. Maas, Raymond E. Daly, Peter T. Pham, Dan Huang, Andrew Y. Ng, Christopher Potts.
     > Learning Word Vectors for Sentiment Analysis.
@@ -65,7 +65,7 @@
     }
 
     The dataset contains **50,000 movie reviews** for binary sentiment classification. It is used in this project exclusively for indexing and search performance evaluation.
-
+    
 
 # Status
     The project is now resumed (current date: December 2025).
