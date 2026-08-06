@@ -14,18 +14,13 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-set(ICU_ROOT "/opt/homebrew/opt/icu4c")         
-set(ICU_INCLUDE_DIR "${ICU_ROOT}/include")
-set(ICU_LIBRARY_DIR "${ICU_ROOT}/lib")
-
-include_directories(${ICU_INCLUDE_DIR})
-
-
-set(ICU_LIBS
-    ${ICU_LIBRARY_DIR}/libicuuc.a
-    ${ICU_LIBRARY_DIR}/libicui18n.a
-    ${ICU_LIBRARY_DIR}/libicudata.a
+list(APPEND CMAKE_PREFIX_PATH
+    /opt/homebrew/opt/icu4c   # Apple Silicon Homebrew
+    /usr/local/opt/icu4c      # Intel Mac Homebrew
 )
+find_package(ICU REQUIRED COMPONENTS uc i18n data)
+set(ICU_LIBS ICU::uc ICU::i18n ICU::data)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
