@@ -6,11 +6,11 @@ namespace helpers{
         int first=0;
         int last_position = token.length()-1;
         //checking if the first char of the string is a space, if so moving the first pos of the string
-        while(u_isWhitespace_77(token.char32At(first))&&first<last_position){
+        while(u_isWhitespace(token.char32At(first))&&first<last_position){
             first++;
         }
         //checking if the last char of the string is a space, if so moving the last pos of the string
-        while(u_isWhitespace_77(token.char32At(last_position))&&last_position>first){
+        while(u_isWhitespace(token.char32At(last_position))&&last_position>first){
             last_position--;
         }
         //trimming
