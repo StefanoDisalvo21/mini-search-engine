@@ -22,9 +22,7 @@
     - Learn how ranking works 
     - Learn how to work with git with the aim to be able to help and give 
     contributions in open source projects
-    - Learn how to write tests using "Google Test".
-
-    
+    - Learn how to write tests using "Google Test".  
 
 
 ## Project Structure 📁
@@ -40,13 +38,6 @@
         .gitignore
         CMakeLists.txt
         README.md
-
-# Useful info
-    The project uses the [ICU (International Components for Unicode)]
-    (https://icu.unicode.org/) library to handle strings.
-    ICU is distributed under the [ICU License](https://github.com/unicode-org/icu/blob/main/LICENSE),
-    a permissive open source license.
-
     
 ## Benchmark Dataset
     Performance tests were conducted on a M2 MacBook using the **Large Movie Review Dataset (aclImdb)** introduced by:
@@ -74,7 +65,7 @@
         Searching (3 word query):
             - ~1.78 seconds
             - ~56.2 query/second
-# Status
+## Status
     The project is now resumed (current date: December 2025).
     The main goal of implementing indexing, 
     tokenization and tf-idf search has been reached.
@@ -82,5 +73,49 @@
     is now active again with the aim of making it better
     and of publishing it via Github Releases 
     for MacOs platform.
+
+
+## Licenses & Third-Party Libraries 📜
+    The project uses the [ICU (International Components for Unicode)]
+    (https://icu.unicode.org/) library to handle strings.
+    ICU is distributed under the [ICU License](https://github.com/unicode-org/icu/blob/main/LICENSE),
+    a permissive open source license.
+
+    -----------------------------------
+
+    The project uses the CLI11 Module originally designed by Henry Schreiner
+    [CLI11](https://github.com/CLIUtils/CLI11)
+    CLI11 2.7.2 Copyright (c) 2017-2026 University of Cincinnati, developed by Henry
+    Schreiner under NSF AWARD 1414736. All rights reserved.
     
+<details>
+<summary>Click to view CLI11 License Agreement</summary>
+
+```text
+    CLI11 2.7.2 Copyright (c) 2017-2026 University of Cincinnati, developed by Henry
+    Schreiner under NSF AWARD 1414736. All rights reserved.
+
+    Redistribution and use in source and binary forms of CLI11, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+    3. Neither the name of the copyright holder nor the names of its contributors
+    may be used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+    ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+    ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 ## Enjoy The Ride 🚀🚀
