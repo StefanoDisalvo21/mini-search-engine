@@ -88,7 +88,7 @@
     CLI11 2.7.2 Copyright (c) 2017-2026 University of Cincinnati, developed by Henry
     Schreiner under NSF AWARD 1414736. All rights reserved.
     
-<details>
+<details> 
 <summary>Click to view CLI11 License Agreement</summary>
 
 ```text
@@ -117,5 +117,8 @@
     ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
     SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+    
+</details>
 
 ## Enjoy The Ride 🚀🚀
