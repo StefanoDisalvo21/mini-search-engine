@@ -66,7 +66,14 @@
 
     The dataset contains **50,000 movie reviews** for binary sentiment classification. It is used in this project exclusively for indexing and search performance evaluation.
     
-
+    Benchmark Results (12500 docs):
+        Indexing:
+            - ~1.13 seconds
+            - ~11028 docs/second
+            - ~90.6 μs average per-document indexing latency
+        Searching (3 word query):
+            - ~1.78 seconds
+            - ~56.2 query/second
 # Status
     The project is now resumed (current date: December 2025).
     The main goal of implementing indexing, 
