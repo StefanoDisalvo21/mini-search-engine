@@ -5,42 +5,56 @@
 #include <filesystem>
 #include "document.hpp"
 #include "search_engine.hpp"
+#include "command_line_interface.hpp"
 using namespace std;
 
 namespace fs= filesystem;
-int main(){
+int main(int argc, char **argv){
+    //object declaration
     DomLoad loader;
     SearchEngine working_engine;
-    int choice;
-    string data_information;
-    cout<<"\n\t--Mini Search Engine--\t\n";
-    cout<<"Insert The Data Path: ";
-    cin>>data_information;
-    vector<Document> data_vector=loader.load_data(data_information);
-    working_engine.build_index(data_vector);
-    do{
-        cout<<"1)Search\n2)Quit\nChoose: ";
-        cin>>choice;
-        if(cin.fail()) {
-            cin.clear();               
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    CommandLineInterface cli;
 
-        if(choice==1){
-            string query;
-            cout<<"\nSearch: ";
-            getline(cin,query);
-            vector<pair<int,double>> query_results=working_engine.search(query,data_vector);
-            working_engine.display_results(query_results,data_vector);
-        }
-        else if(choice==2){
+    //variables declaration
+    vector<Document> data_vector;
+    string query;
+    string data_information;
+
+    //header of the program "UI"
+    cout<<"\n\t--Mini Search Engine--\t\n";
+
+    //calling the cli interface
+    int cli_call_result = cli.cli_call(argc,argv);
+    if(cli_call_result!=0){
+        return cli_call_result;
+    }//end check cli control;
+
+    //getting the data path
+    data_information=cli.get_path();
+
+    //loading data
+    try{
+        data_vector=loader.load_data(data_information);
+        working_engine.build_index(data_vector);
+    }
+    catch(const exception& e){
+        cerr<<e.what()<<endl;
+        return 1;
+    }
+    //end loading data
+
+    cout<<"\nType ':quit' in order to exit\n";
+    do{
+        cout<<"\nSearch: ";
+        getline(cin,query);
+        if(query==":quit"){
             cout<<"\nThanks, see you next time"<<endl;
         }
         else{
-            cout<<"\nNot a valid choice";
+            vector<pair<int,double>> query_results=working_engine.search(query,data_vector);
+            working_engine.display_results(query_results,data_vector);
         }
-    }while(choice!=2);
+
+    }while(query!=":quit");
     return 0;
 }
