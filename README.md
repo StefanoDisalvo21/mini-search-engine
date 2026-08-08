@@ -1,8 +1,8 @@
 # Mini Search Engine 🗂️
 
 ## About
-    The project itself is a search engine, obviously
-    a very basic one but it has been thought 
+    The project itself is a CLI textual search engine, 
+    obviously a very basic one but it has been thought 
     to be a practice and a way to learn.
 
     The project started in September 2025 at
@@ -41,6 +41,61 @@
         CMakeLists.txt
         README.md
     
+
+## Building
+
+### Prerequisites
+- CMake 3.14+
+- A C++17 compiler
+- ICU4C (macOS via Homebrew: `brew install icu4c`)
+
+### Build
+
+    mkdir build
+    cd build
+    cmake ..
+    cmake --build .
+
+### Running the tests
+
+From the `build` directory:
+
+    ctest
+
+(or run the individual test binaries directly, e.g. `./src/engine_test`)
+
+## Running
+
+    ./src/mini_search_engine --path <path-to-documents-folder>
+
+`--path` is required and must point to a directory containing `.txt` files otherwise the program would fail
+
+See all available options:
+
+    ./src/mini_search_engine --help  or  ./src/mini_search_engine -h
+
+### Interactive search
+
+Once started, type a query and press Enter to search. Type `:quit` at any
+time to exit.
+
+Example:
+
+    ./src/mini_search_engine --path ../../data/
+
+    --Mini Search Engine--
+
+    Type ':quit' in order to exit
+
+    Search: machine learning
+    1. - article3.txt - Score: 0.842
+    2. - article1.txt - Score: 0.417
+
+    Search: :quit
+
+    Thanks, see you next time
+    
+
 ## Benchmark Dataset
     Performance tests were conducted on a M2 MacBook using the **Large Movie Review Dataset (aclImdb)** introduced by:
 
@@ -67,14 +122,6 @@
         Searching (3 word query):
             - ~1.78 seconds
             - ~56.2 query/second
-## Status
-    The project is now resumed (current date: December 2025).
-    The main goal of implementing indexing, 
-    tokenization and tf-idf search has been reached.
-    Although the goal has been achieved, the project
-    is now active again with the aim of making it better
-    and of publishing it via Github Releases 
-    for MacOs platform.
 
 
 ## Licenses & Third-Party Libraries 📜
@@ -122,5 +169,16 @@
 ```
     
 </details>
+
+
+## Status
+    The project is now resumed (current date: December 2025).
+    The main goal of implementing indexing, 
+    tokenization and tf-idf search has been reached.
+    Although the goal has been achieved, the project
+    is now active again with the aim of making it better
+    and of publishing it via Github Releases 
+    for MacOs platform.
+
 
 ## Enjoy The Ride 🚀🚀
