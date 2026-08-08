@@ -27,21 +27,22 @@ void SearchEngine::evaluate_score(vector<pair<int,double>>&results_vector,vector
     double term_frequency=0;
     double inverse_document_frequency=0;
     double tf_idf=0;
-    //searching for each token in each doc
-    for(auto& tok: query_tokens){
-        for(auto& data_tok:data_vector){
-            //checking if the token is in the index
-            if(index.find(tok)!=index.end()){
-                auto& doc_map = index[tok];
-                //check if the token is in the docs
-                if(doc_map.find(data_tok.get_doc_id())!=doc_map.end()){
-                    //score evaluation
-                    term_frequency=static_cast<double>(index[tok][data_tok.get_doc_id()])/static_cast<double>(data_tok.get_tokens().size());
-                    inverse_document_frequency= log10(1+(static_cast<double>(number_of_documents)/static_cast<double>(index[tok].size())));
-                    tf_idf=term_frequency*inverse_document_frequency;
-                    query_index_score[data_tok.get_doc_id()]+=tf_idf;
-                }
-            }
+    //searching for each token 
+    for(auto& tok: query_tokens){ 
+        //find tiken 
+        auto doc_map_iterator = index.find(tok); 
+        //going to the next loop if not found 
+        if(doc_map_iterator == index.end()) continue; 
+        //getting the value of the first unordered_map (another unorthered map)
+        auto& doc_map = doc_map_iterator->second;
+        inverse_document_frequency = log10(1+(static_cast<double>(number_of_documents)/static_cast<double>(doc_map.size())));
+        //checking each document 
+        for(auto& x : doc_map){
+            int doc_id = x.first; 
+            int term_count = x.second;
+            term_frequency = static_cast<double>(term_count)/static_cast<double>(data_vector[doc_id].get_tokens().size());
+            tf_idf = term_frequency*inverse_document_frequency;
+            query_index_score[doc_id]+=tf_idf;
         }
     }
     for(auto& elements:query_index_score){
