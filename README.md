@@ -30,10 +30,12 @@
         -src/
             - All the source files
             -CMakeLists.txt
-        -tests
+        -tests/
             -Tests File
             -CMakeLists.txt
-        -data
+        -external/
+            -Third party libraries (CLI11)
+        -data/
         -build (ignored)
         .gitignore
         CMakeLists.txt
