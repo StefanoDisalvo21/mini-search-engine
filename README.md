@@ -120,8 +120,8 @@ Example:
             - ~11028 docs/second
             - ~90.6 μs average per-document indexing latency
         Searching (3 word query):
-            - ~1.78 seconds
-            - ~56.2 query/second
+            - ~0.32 seconds
+            - ~313.8 query/second
 
 
 ## Licenses & Third-Party Libraries 📜
