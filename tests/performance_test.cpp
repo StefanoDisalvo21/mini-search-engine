@@ -61,6 +61,6 @@ TEST(Performance_Test, search_test){
     
     RecordProperty("total_docs", std::to_string(data_vector.size()));
     RecordProperty("total_time", std::to_string(seconds));
-    RecordProperty("avg_search_latency", std::to_string(seconds));
+    RecordProperty("avg_search_latency", std::to_string(average_search_latency));
     EXPECT_FALSE(query_results.empty());
 }
