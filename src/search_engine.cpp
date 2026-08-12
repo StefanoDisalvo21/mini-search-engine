@@ -5,10 +5,17 @@ using namespace std;
 void SearchEngine::build_index(vector<Document>& data_vector){
     for(auto& data_docs:data_vector){
         vector<string> tokens = data_docs.get_tokens();
+        //local structure in order to count the terms to pushback
+        unordered_map<string,int> term_count;
         for(auto& words:tokens){
-            index[words][data_docs.get_doc_id()]++;
+            term_count[words]++;
         }
-    }
+        //updating index
+        for(auto& elements:term_count){
+            index[elements.first].push_back({data_docs.get_doc_id(),elements.second});
+        }
+
+    }//end outer for
 }
 
 //processing query

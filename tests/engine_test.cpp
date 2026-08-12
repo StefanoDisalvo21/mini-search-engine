@@ -16,8 +16,8 @@ TEST(Index_Test, first_test){
     vector_docs.push_back(docs);
     SearchEngine index_try;
     index_try.build_index(vector_docs);
-    unordered_map<string, unordered_map<int,int>> expected_index;
-    unordered_map<string, unordered_map<int,int>> index=index_try.get_index();
+    unordered_map<string, vector<pair<int,int>>> expected_index;
+    unordered_map<string, vector<pair<int,int>>> index=index_try.get_index();
 
     expected_index["hello"]={{0,1}};
     expected_index["mark"]={{0,2}};
@@ -48,8 +48,8 @@ TEST(Index_Test, second_test){
     vector_docs.push_back(docs2);
     SearchEngine index_try;
     index_try.build_index(vector_docs);
-    unordered_map<string, unordered_map<int,int>> expected_index;
-    unordered_map<string, unordered_map<int,int>> index=index_try.get_index();
+    unordered_map<string, vector<pair<int,int>>> expected_index;
+    unordered_map<string, vector<pair<int,int>>> index=index_try.get_index();
 
     expected_index["hello"]={{0,1}, {1,1}};
     expected_index["mark"]={{0,2}, {1,1}};
@@ -91,7 +91,7 @@ TEST(Score_Test, first_test){
     vector_docs.push_back(docs3);
     SearchEngine index_try;
     index_try.build_index(vector_docs);
-    unordered_map<string, unordered_map<int,int>> index=index_try.get_index();
+    unordered_map<string, vector<pair<int,int>>> index=index_try.get_index();
     string test_search="Cat Elephant";
     vector<pair<int,double>> results=index_try.search(test_search,vector_docs);
     double expected_score=0.274;
@@ -132,7 +132,7 @@ TEST(Score_Test, Second_Test){
     vector_docs.push_back(docs3);
     SearchEngine index_try;
     index_try.build_index(vector_docs);
-    unordered_map<string, unordered_map<int,int>> index=index_try.get_index();
+    unordered_map<string, vector<pair<int,int>>> index=index_try.get_index();
     string test_search="AI";
     vector<pair<int,double>> results=index_try.search(test_search,vector_docs);
     double expected_score=0.0502;
