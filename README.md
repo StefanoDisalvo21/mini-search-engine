@@ -114,14 +114,15 @@ Example:
 
     The dataset contains **50,000 movie reviews** for binary sentiment classification. It is used in this project exclusively for indexing and search performance evaluation.
     
-    Benchmark Results (12500 docs):
+    Average Benchmark Results (12500 docs):
         Indexing:
-            - ~1.13 seconds
-            - ~11028 docs/second
-            - ~90.6 μs average per-document indexing latency
+            - ~0.94 seconds
+            - ~13200 docs/second
+            - ~75.9 μs average per-document indexing latency
         Searching (3 word query):
-            - ~0.32 seconds
-            - ~313.8 query/second
+            - ~0.29 seconds
+            - ~340.7 query/second
+
 
 
 ## Licenses & Third-Party Libraries 📜
