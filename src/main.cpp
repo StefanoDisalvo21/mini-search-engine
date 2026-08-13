@@ -43,11 +43,11 @@ int main(int argc, char **argv){
     }
     //end loading data
 
-    cout<<"\nType ':quit' in order to exit\n";
+    cout<<"\nType ':q' in order to exit\n";
     do{
         cout<<"\nSearch: ";
         getline(cin,query);
-        if(query==":quit"){
+        if(query==":q"){
             cout<<"\nThanks, see you next time"<<endl;
         }
         else{
@@ -55,6 +55,6 @@ int main(int argc, char **argv){
             working_engine.display_results(query_results,data_vector);
         }
 
-    }while(query!=":quit");
+    }while(query!=":q");
     return 0;
 }
