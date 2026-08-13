@@ -60,7 +60,9 @@ namespace helpers{
         string word;
         while(getline(check1, word, ' '))
         {
-            tokens.push_back(word);
+            if(word!=""){
+                tokens.push_back(word);
+            }
         }
         return tokens;
     }

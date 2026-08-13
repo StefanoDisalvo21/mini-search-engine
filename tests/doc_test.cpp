@@ -214,3 +214,10 @@ TEST(boolean_tokenization, third_test){
     vector<string> expected_vector = {"Machine","Learning","NOT","Ai"};
     EXPECT_EQ(tokens,expected_vector);
 }
+
+TEST(boolean_tokenization, fourth_test){
+    string query = "Machine  Ai";
+    vector<string> tokens = helpers::boolean_tokenization(query);
+    vector<string> expected_vector = {"Machine","Ai"};
+    EXPECT_EQ(tokens,expected_vector);
+}
