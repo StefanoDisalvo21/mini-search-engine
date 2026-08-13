@@ -52,4 +52,22 @@ namespace helpers{
         return tokens;
     }
 
+    vector<string> boolean_tokenization(string& query){
+        // Vector of string to save tokens
+        vector <string> tokens;
+        // stringstream class check1
+        stringstream check1(query);
+        string word;
+        while(getline(check1, word, ' '))
+        {
+            tokens.push_back(word);
+        }
+        return tokens;
+    }
+    
+    bool is_boolean(vector<string> tok){
+        
+        return false;
+    }
+
 };

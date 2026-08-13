@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <iostream>
+#include "helpers_function.hpp"
 #include "document.hpp"
 using namespace std;
 
@@ -193,4 +194,23 @@ TEST(doc_tokenization, fourth_test){
     EXPECT_EQ(tokens2,expected_vector2);
     EXPECT_EQ(tokens3,expected_vector3);
     EXPECT_EQ(tokens4,expected_vector4);
+}
+
+TEST(boolean_tokenization, first_test){
+    string query = "Machine Learning AND Ai";
+    vector<string> tokens = helpers::boolean_tokenization(query);
+    vector<string> expected_vector = {"Machine","Learning","AND","Ai"};
+    EXPECT_EQ(tokens,expected_vector);
+}
+TEST(boolean_tokenization, second_test){
+    string query = "machine learning and ai";
+    vector<string> tokens = helpers::boolean_tokenization(query);
+    vector<string> expected_vector = {"machine","learning","and","ai"};
+    EXPECT_EQ(tokens,expected_vector);
+}
+TEST(boolean_tokenization, third_test){
+    string query = "Machine Learning NOT Ai";
+    vector<string> tokens = helpers::boolean_tokenization(query);
+    vector<string> expected_vector = {"Machine","Learning","NOT","Ai"};
+    EXPECT_EQ(tokens,expected_vector);
 }
