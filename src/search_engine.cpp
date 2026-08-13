@@ -55,10 +55,10 @@ void SearchEngine::evaluate_score(vector<pair<int,double>>&results_vector,vector
     for(auto& elements:query_index_score){
         results_vector.push_back({elements.first,elements.second});
     }
+    //lamba function that orders the results in increasing order regarding points scored
     sort(results_vector.begin(),results_vector.end(), [](auto& a, auto& b){return a.second>b.second;});
 }
 
-//function to translate from ids to filename 
 
 //displaying results
 void SearchEngine::display_results(vector<pair<int,double>>& query_results, vector<Document>&data_vector){
