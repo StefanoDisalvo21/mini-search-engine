@@ -67,8 +67,12 @@ namespace helpers{
         return tokens;
     }
     
-    bool is_boolean(vector<string> tok){
-        
+    bool is_boolean(vector<string>& tok){
+        for(auto& tokens:tok){
+            if(tokens=="AND"||tokens=="NOT"||tokens=="OR"){
+                return true;
+            }
+        }
         return false;
     }
 
