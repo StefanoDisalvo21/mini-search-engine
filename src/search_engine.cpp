@@ -20,6 +20,8 @@ void SearchEngine::build_index(vector<Document>& data_vector){
 
 //processing query
 vector<pair<int,double>> SearchEngine::search(string& query, vector<Document>&data_vector){
+    //boolean filter
+    unordered_set<int> boolean_processed_data=process_boolean_queries(query,data_vector);
     icu::UnicodeString normalized_string=helpers::normalization(query);
     vector<string> query_tokens = helpers::doc_tokenization(normalized_string);
     vector<pair<int,double>> results;
@@ -59,6 +61,25 @@ void SearchEngine::evaluate_score(vector<pair<int,double>>&results_vector,vector
     sort(results_vector.begin(),results_vector.end(), [](auto& a, auto& b){return a.second>b.second;});
 }
 
+
+//index lookup function
+unordered_set<int> SearchEngine::index_look_up_function(const string& token){
+    unordered_set<int> document_finds;
+    //find token and check if not in the document
+    auto doc_map_iterator = index.find(token);
+    if(doc_map_iterator==index.end()){
+
+    }
+    else{
+        auto&  doc_map = doc_map_iterator->second;
+        for(auto& x:doc_map){
+            document_finds.insert(x.first);
+        }   
+    }
+    return document_finds;
+}
+
+//end index look up function
 
 //displaying results
 void SearchEngine::display_results(vector<pair<int,double>>& query_results, vector<Document>&data_vector){
