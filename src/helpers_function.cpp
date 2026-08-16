@@ -76,4 +76,23 @@ namespace helpers{
         return false;
     }
 
+    unordered_set<int> set_intersect_function(const unordered_set<int>& res, const unordered_set<int>& operand){
+        //result structure
+        unordered_set<int> result_structure;
+        if(res.size()<operand.size()){
+            for(auto& doc_id:res){
+                if(operand.count(doc_id)){
+                    result_structure.insert(doc_id);
+                }
+            }
+        }
+        else{
+            for(auto& doc_id:operand){
+                if(res.count(doc_id)){
+                    result_structure.insert(doc_id);
+                }
+            }
+        }
+        return result_structure;
+    }
 };
