@@ -81,6 +81,7 @@ namespace helpers{
         unordered_set<int> result_structure;
         if(res.size()<operand.size()){
             for(auto& doc_id:res){
+                //inserting doc id in the result structure if found corrispondece
                 if(operand.count(doc_id)){
                     result_structure.insert(doc_id);
                 }
@@ -88,10 +89,22 @@ namespace helpers{
         }
         else{
             for(auto& doc_id:operand){
+                //inserting doc id in the result structure if found corrispondece
                 if(res.count(doc_id)){
                     result_structure.insert(doc_id);
                 }
             }
+        }
+        return result_structure;
+    }
+    unordered_set<int> set_union_function(const unordered_set<int>& res, const unordered_set<int>& operand){
+        //result structure
+        unordered_set<int> result_structure;
+        for(auto& doc_id:res){
+            result_structure.insert(doc_id);
+        }
+        for(auto& doc_id:operand){
+            result_structure.insert(doc_id);
         }
         return result_structure;
     }
