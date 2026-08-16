@@ -14,4 +14,6 @@ namespace helpers{
     icu::UnicodeString normalization(string& cont);
     bool is_boolean(vector<string>& tok);
     vector<string> boolean_tokenization(string& query);
+    unordered_set<int> set_intersect_function(unordered_set<int>& res, unordered_set<int>& operand);
+    unordered_set<int> set_union_function(unordered_set<int>& res, unordered_set<int>& operand);
 };
