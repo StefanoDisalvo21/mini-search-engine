@@ -140,3 +140,40 @@ TEST(Score_Test, Second_Test){
     EXPECT_NEAR(results[0].second, expected_score, 1e-3);
 
 }
+
+
+TEST(intersection_test, first_test){
+    DomLoad dom_obj;
+    SearchEngine working_engine;
+    string ds="../../data";
+    vector<Document> docs = dom_obj.load_data(ds);
+    working_engine.build_index(docs);
+    string query = "AI AND Mark";
+    unordered_set<int> result = working_engine.process_boolean_queries(query, docs);
+    unordered_set<int> expected_result = {3};
+    EXPECT_EQ(result,expected_result);
+}
+
+TEST(union_test, first_test){
+    DomLoad dom_obj;
+    SearchEngine working_engine;
+    string ds="../../data";
+    vector<Document> docs = dom_obj.load_data(ds);
+    working_engine.build_index(docs);
+    string query = "AI OR Mark";
+    unordered_set<int> result = working_engine.process_boolean_queries(query, docs);
+    unordered_set<int> expected_result = {0,1,2,3};
+    EXPECT_EQ(result,expected_result);
+}
+
+TEST(intersection_test, second_test){
+    DomLoad dom_obj;
+    SearchEngine working_engine;
+    string ds="../../data";
+    vector<Document> docs = dom_obj.load_data(ds);
+    working_engine.build_index(docs);
+    string query = "AI AND NOT Mark";
+    unordered_set<int> result = working_engine.process_boolean_queries(query, docs);
+    unordered_set<int> expected_result = {0,1,2};
+    EXPECT_EQ(result,expected_result);
+}
