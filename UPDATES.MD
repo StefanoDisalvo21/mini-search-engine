@@ -1,18 +1,16 @@
 # Updates
 
-    Update (October 2025):
-    The goals that I set at the beginning
-    of the project took more or less
-    a month to be reached, all this month
-    of working taught me so much, as already
-    said this is my first project as an HS student
-    not enrolled in university yet, the user experience 
-    is very poor with basic interaction
-    but the goal was only on the logic
-    since it is what I do really love.
-    Anyway I really enjoyed working on this and 
-    I want to push even more and learn
-    more to get better everyday at what I love.
-    
-    Update (August 2026):
-    The project has been resumed.
+## Update (August 2026):
+    The project now is fully complete,
+    the project as been pushed far beyond of
+    what it should've been originally.
+    Now it's a real CLI command tool,
+    with TF-IDF and Boolean queries allowed.
+    I feel satisfied of what I've done and it
+    has been beautifull working and challenging
+    myself with harder and harder challenges
+    in order to keep learning.
+    Now I decided to put a full stop to this project
+    and move on, whatever is going to come will be
+    more challenging and more beautiful but the passion
+    will be always the same!
